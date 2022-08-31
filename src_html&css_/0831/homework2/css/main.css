@@ -29,7 +29,7 @@ header {
 /* header의 내용에 들어갈 클래스 선택자. html 파일 참고 */
 .header-nav {
   /* 수평 요소 동적 크기 구성을 위한 css 속성 */
-  display: inline;
+  display: flex;
   justify-content: space-between;
 }
 
