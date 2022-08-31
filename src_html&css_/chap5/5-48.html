@@ -9,14 +9,25 @@
 	.td_button { 
 		height: 20px; background-color: skyblue;
 		border: 1px solid steelblue; cursor: pointer;
-		font-size: 13px; color: lightgray;
+		font-size: 13px; color: black;
 		text-align: center;
 	}
 	.output { background: white; }
 	.visible { visibility: visible; }
 	.hidden { visibility: hidden; }
 	.block { display: block; }
+	.inline{
+		display: inline;
+	}
+	.inline-block{
+		display: inline-block;
+	}
 	.none { display: none; }
+	#imgview{
+		margin:30px;
+		padding:30px;
+		background-color: blue;
+	}
 	</style>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -27,7 +38,9 @@
 	</script>
 </head>
 <body>
+	안녕하슈
 	<div id="imgview"><img src="../img/css3.png"></div>
+	ㅎㅎㅎ
 	<table>
 		<tr>
 			<td colspan="2"> visiblility</td>
@@ -41,6 +54,8 @@
 		</tr>
 		<tr>
 			<td class="td_button">block</td>
+			<td class="td_button">inline</td>
+			<td class="td_button">inline-block</td>
 			<td class="td_button">none</td>
 		</tr>
 	</table>

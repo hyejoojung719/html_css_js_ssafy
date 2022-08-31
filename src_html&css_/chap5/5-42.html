@@ -5,28 +5,90 @@
     <title>Position Property(위치속성)</title>
 
     <style type="text/css">
+      body{
+        width: 2000px;
+        background-color: red;
+      }
+
       div {
-        position: relative;
+        background-color: blue;
+        /* position: relative; */
         font: bold 40px Verdana;
+        top: 100px;
+        left:100px;
       }
       .span1 {
+        /* absolute : 자신의 상위 box가 기준 */
         position: absolute;
+        /* position: static; */
         top: 53px;
-        left: 53px;
+        /* left: 53px; */
+        right : 53px; /* 오른쪽으로부터 53px */
         color: orange;
       }
       .span2 {
         position: absolute;
-        top: 50px;
+        top: 100px;
         left: 50px;
         color: skyblue;
+      }
+      .fixed{
+        position: fixed;
+        left: 300px;
+        top : 20px;
+        font-size: xx-large
+        ;
       }
     </style>
   </head>
   <body>
-    <div>
+    <div> <!-- span이 absolute라서 div태그가 그만큼 커지지 않음-->
       <span class="span1">^_______^<br /><br /><br />Hello CSS!!!</span>
-      <span class="span2">^_______^<br /><br /><br />Hello CSS!!!</span>
+      <!-- <span class="span2">^_______^<br /><br /><br />Hello CSS!!!</span> -->
     </div>
+    <!-- span2의 부모는 body -> body태그는 position이 absolute임 -->
+    <span class="span2">^_______^<br /><br /><br />Hello CSS!!!</span>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <div>Hello</div>
+    <span class="fixed">fixed</span>
   </body>
 </html>

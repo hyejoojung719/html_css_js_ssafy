@@ -5,6 +5,11 @@
     <title>Box Model(margin, padding, border)</title>
 
     <style type="text/css">
+      *{
+        /* box-sizing: content-box; 얘가 default로 되어 있음 */
+        box-sizing: border-box; /* 보통 얘를 지정하고 시작함*/
+      }
+
       ul {
         background: lightgray;
         border-style: dotted;
@@ -20,11 +25,13 @@
         margin: 12px;
         padding: 12px;
         list-style: none;
+        width: 100px;
       }
       li.withborder {
         border-style: dashed;
         border-width: thick;
         border-color: maroon;
+        width: 100px;
       }
     </style>
   </head>

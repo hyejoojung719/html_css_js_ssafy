@@ -33,21 +33,31 @@
       .hidden {
         border: 3px solid magenta;
         overflow: hidden;
+        /* 넘치는 부분은 안 보임 */
       }
       /* 필요에 따라 가로 세로 스크롤 생성. */
       .auto2 {
         border: 3px solid lightgray;
         overflow: auto;
+        /* overflow: visible; */
+        /* visible -> 넘치는것도 다 보여줌 
+         높이 지정을 안하면 content만큼 크기가 늘어난다. */
+        /* auto ->  넘치면 스크롤바*/
       }
       /* 무조건 가로 세로 스크롤 생성. */
       .scroll {
         border: 3px solid darkgray;
-        overflow: scroll;
+        /* overflow: scroll; */
+        overflow-x: scroll;
+        overflow-y: scroll; /* 이렇게 따로따로 지정할 수 있다. */
+        /* 넘어갈때만 스크롤 생기는 auto와 달리 그냥 스크롤이 만들어짐 */
       }
     </style>
   </head>
   <body>
     <div class="div1 auto2">
+      <!-- <div class="div1 scroll">  -->
+      <!-- <div class="div1 hidden"> -->
       안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요.
       안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요.
       안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요.

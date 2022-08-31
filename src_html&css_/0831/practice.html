@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ssafy</title>
+</head>
+<body>
+  <!-- 상단 Header 영역 -->
+  <header>
+      <a href="https://edu.ssafy.com/edu/main/index.do">SSAFY HOME</a>
+      <!-- ul>li*5>a>{$기} -->
+      <ul>
+        <li><a href="">1기</a></li>
+        <li><a href="">2기</a></li>
+        <li><a href="">3기</a></li>
+        <li><a href="">4기</a></li>
+        <li><a href="">5기</a></li>
+      </ul>
+    </header>
+  <!-- 중앙 Content 영역 -->
+  <section>
+    <!-- 중앙 left content 영역 -->
+    <aside>
+      <div>Profile</div>
+      <div>
+        <button>투표 만들기</button> 
+      </div> <!-- 기본 display속성은 inline, 따라서 div로 감싸주면 됨-->
+      <div> [ 당신의 선택 ] </div>
+      <div>SSAFY에서의 지역?</div>
+      <!-- ul>li*4>input:radio -->
+      <ul>
+        <!-- radio는 같은 name을 부여해여 하나만 선택이 가능하게 할 수 있다. -->
+        <!-- radio는 name, value가 필수! -->
+        <li><input type="radio" name="vote-answer" value="서울"> 서울</li>
+        <li><input type="radio" name="vote-answer" value="대전"> 대전</li>
+        <li><input type="radio" name="vote-answer" value="구미"> 구미</li>
+        <li><input type="radio" name="vote-answer" value="광주"> 광주</li>
+      </ul>
+      <div>
+        <button>투표하기</button>
+        <button>결과보기</button>
+      </div>
+      투표기간 : 21.03.01 ~ 21.03.31
+    </aside>
+    <!-- 중앙 main content 영역 -->
+    <main>
+      <div>내용1</div>
+      <div>내용2</div>
+      <div>내용3</div>
+    </main>
+  </section>
+  <!-- 하단 Footer 영역 -->
+  <footer>
+    <ul>
+      <li>사이트소개</li>
+      <li>개인정보처리방침</li>
+      <li>이용약관</li>
+      <li>오시는길</li>
+    </ul>
+  </footer>
+</body>
+</html>
