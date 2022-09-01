@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "html_css_js_ssafy",
+			"path": "..\\..\\..\\..\\Desktop\\html_css_js_ssafy"
+		},
+		{
+			"name": "frontest",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "frontest"
+	}
+}
