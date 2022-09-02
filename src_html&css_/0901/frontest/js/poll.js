@@ -1,40 +1,84 @@
+
+function remove(el) {
+  console.log(el);
+  let removeEl = el.parentNode;
+  let parentEl = document.querySelector("#poll-answer-list");
+
+  parentEl.removeChild(removeEl);
+}
 window.onload = function () {
-  //2. 답변항목 추가 버튼 클릭 이벤트 핸들링(poll.js)
-    document.getElementById("btn-add").addEventListener("click",function(){
-        //1. 삭제 버튼 엘리먼트 만들기
-        let buttonEl = document.createElement("button");
-        buttonEl.setAttribute("class","button");
-        // 텍스트 노드 만들어서 버튼의 자식으로 추가
-        buttonEl.appendChild(document.createTextNode("삭제"));
-        //삭제 버튼 클릭 이벤트 핸들링
-        buttonEl.addEventListener("click",function(){
-
-            //삭제할 엘리먼트의 부모 엘리먼트
-            let parentEl = document.getElementById("poll-answer-list");
-            // 버튼 엘리먼트의 부모 엘리먼트(삭제될 엘리먼트)
-            let removeEl = buttonEl.parentNode;
-
-            // 부모로부터 자식 삭제
-            parentEl.removeChild(removeEl);
-        })
-
-        //2. 입력 input 엘리먼트 만들기
+  // 답변 항목 추가 버튼 클릭.
+  document.querySelector("#btn-add").addEventListener("click", function () {
+    
+    // 답변 항목 담을 Div
+    let pollAnswerListDiv = document.querySelector("#poll-answer-list");
+    pollAnswerListDiv.innerHTML += `
+      <div class="poll-answer-item">
+        <input type="text" name="answer">
+        <button type="button" class="button" onclick="remove(this)">삭제</button>
+      </div>
+    `
 
 
-        //3. div 엘리먼트 만들기
+    // let pollAnswerListDiv = document.querySelector("#poll-answer-list");
 
-        //4. div 엘리먼트에 자식으로 input과 삭제 버튼 넣어주기
+    // let divEl = document.createElement("div");
+    // divEl.setAttribute("class", "poll-answer-item");
 
-        //5. list에 div를 자식으로 추가하기 
-    });
+    // let inputEl = document.createElement("input");
+    // inputEl.setAttribute("type", "text");
+    // inputEl.setAttribute("name", "answer");
 
-    // 3. 투표 생성 버튼 클릭 이벤트 핸들링(poll.js)
-        // 1) 질문, 답변 항목 유효성 검사
+    // let buttonEl = document.createElement("button");
+    // buttonEl.setAttribute("type", "button");
+    // buttonEl.setAttribute("class", "button");
+    // buttonEl.appendChild(document.createTextNode("삭제"));
+    // // 삭제버튼 이벤트 등록
+    // buttonEl.addEventListener("click", function () {
+    //   let parentEl = this.parentNode;
+    //   pollAnswerListDiv.removeChild(parentEl);
+    // });
 
-        // 2) 질문, 답변 항목 항목을 localstorage에 저장 
-            // - 문자열로 저장
+    // divEl.appendChild(inputEl);
+    // divEl.appendChild(buttonEl);
+    // pollAnswerListDiv.appendChild(divEl);
+  });
 
-        // 3) 투표생성 창 닫고, 부모창 새로고침
+  // 투표 생성 버튼 클릭
+  document.querySelector("#btn-make").addEventListener("click", function () {
+    let question = document.querySelector("#question").value;
+    if (!question) {
+      alert("질문을 입력하세요!!!");
+      return;
+    }
 
-        // JSON.stringify({"a" : 123}) '{"a":123}'
+    // let answers = document.querySelectorAll("input[name='answer']");
+    let answers = document.getElementsByName("answer");
+    // for (let i = 0; i < answers.length; i++) {
+    //   alert(answers[i].value);
+    // }
+    for (let answer of answers) {
+      // for ... in : 객체의 모든 열거 가능한 속성에 대해 반복.
+      //   alert(answer.value);
+      if (!answer.value) {
+        alert("답변 항목을 입력하세요!!!");
+        return;
+      }
+    }
+
+    let answerArr = [];
+    for (let answer of answers) {
+      answerArr.push(answer.value);
+    }
+
+    localStorage.setItem("question", question);
+    localStorage.setItem("answers", JSON.stringify(answerArr));
+    // JSON.stringify() : JavaScript 객체를 JSON 문자열로 변환.
+    // JSON.parse() : JSON 문자열을 JavaScript 객체로 변환.
+
+    if (confirm("투표를 생성하시겠습니까?")) {
+      opener.location.reload();
+      self.close();
+    }
+  });
 };

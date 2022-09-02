@@ -1,0 +1,291 @@
+/* 전체 엘리먼트 지정 */
+* {
+  /* 마진 상하좌우 0 */
+  margin: 0;
+  /* 패딩 상하좌우 0 */
+  padding:  0;
+  /* ul 또는 ol의 기호, 숫자 제거 */
+  list-style: none;
+}
+
+a {
+  /* 텍스트 선으로 꾸미기 속성 - 없애기 */
+  text-decoration-line: none;
+  /* 글씨색 - black */
+  color: black;
+}
+
+/* a태그에 마우스 올렸을 경우 */
+a:hover {
+  /* 커서를 변경 - pointer로 */
+  cursor: pointer;
+  /* 글씨 두껍게 */
+  font-weight: bold;
+}
+
+/* 상단 Header */
+.header {
+  /* 높이 70px */
+  height: 70px;
+  /* 테두리 그림자 설정 - x축 0px, y축 1px, 퍼지는 정도 10px, rgba(100, 90, 50, 0.3)   
+            rgba( r, g, b, 투명도) */
+  box-shadow: 0px 1px 10px rgba(100, 90, 50, 0.3);
+}
+
+.nav {
+  /* 원래 위치에서 이동 가능해지도록 포지션 설정하기 */
+  position: relative;
+  /* 마진 - 상하좌우 자동 */
+  margin: auto;
+  /* 최대 너비 1200px*/
+  max-width: 1200px;
+  /* 너비 설정 - calc() 사용 calc(100%-120px)*/
+  width: calc(100%-120px);
+  /* 높이 70px*/
+  height: 70px;
+}
+
+#logo {
+  /* 글씨 크기 30px */
+  font-size: 30px;
+  /* 글씨 굵기 - 굵게*/
+  font-weight: bold;
+  /* 글씨색  dodgerblue*/
+  color: dodgerblue;
+  /* 왼쪽 정렬 */
+  float: left;
+  /* 왼쪽 마진 20px*/
+  margin-left: 20px;
+  /* 줄 간격 70px */
+  line-height: 70px;
+  /* 높이 70px */
+  height: 70px;
+}
+
+.menu {
+  /* 부모태그 기준 오른쪽 아래 끝에 배치 */
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+
+/* menu 클래스 엘리먼트의 직계자식 li 지정 */
+.menu>li {
+  /* 왼쪽 정렬 */
+  float: left;
+  /* 왼쪽 마진 10px */
+  margin-left: 10px;
+  /* 글씨 크기 20px */
+  font-size: 20px;
+}
+
+/* menu클래스 엘리먼트의 직계 자식 li 중 마지막 엘리먼트 */
+menu>li:last-child {
+  /* 오른쪽 마진 10px */
+  margin-right: 10px;
+}
+
+.menu-item {
+  color: darkcyan;
+}
+
+/* menu-item 클래스 엘리먼트에 마우스 올렸을 때 */
+.menu-item:hover {
+  color: blueviolet;
+}
+/* 중앙 Content */
+.content {
+  /* 마진 상하 10px 좌우 자동 */
+  margin: 10px auto;
+  /* 최대 너비 1200px */
+  max-width: 1200px;
+}
+
+/* 중앙 Left */
+.content-left {
+  /* 너비 25% 만큼 사용 */
+  width: 25%;
+  /* 왼쪽 정렬 */
+  float: left;
+}
+
+.content-left-profile {
+  /* 마진 상하 5px 좌우 auto */
+  margin: 5px auto;
+  /* 높이 180px */
+  height: 180px;
+  /* 글씨 수평정렬 - 가운데 */
+  text-align: center;
+
+}
+.content-left-profile > img {
+  /* 위쪽 마진 5px */
+  margin-left: 5px;
+  /* 높이  170px */
+  height: 170px;
+}
+
+.content-left-poll-btn {
+  /* 글씨 수평정렬 - 가운데 */
+  text-align: center;
+  /* 마진 상하 10px 좌우 자동 */
+  margin: 10px auto;
+}
+
+#btn-makepoll {
+  /* 너비 150px */
+  width : 150px;
+  /* 배경색 - darkcyan */
+  background-color: darkcyan;
+  /* 경계선 색 - blueviolet*/
+  border-color: blueviolet;
+  /* 글씨 색 - antiquewhite */
+  color: antiquewhite;
+  /* 경계선 모서리 둥글게 5px*/
+  border-radius: 5px;
+  /* 글씨 크기 20px */
+  font-size: 20px;
+  /* 패딩 상하좌우5px */
+  padding: 5px;
+  /* 보이지 않고 공간차지X */
+  display: none;
+}
+
+.content-left-poll {
+  /* 경계선 - 굵기 2px, 직선, 색 steelblue */
+  border: 2px solid steelblue;
+  /* 경계선 모서리 둥글게 7px*/
+  border-radius: 7px;
+  /* 패딩 상하좌우 10px */
+  padding: 10px;
+  /* 최소 높이 250px */
+  min-height: 250px;
+  /* 글씨색 darkgray */
+  color: darkgray;
+  /* 글씨 크기 18 px */
+  font-size: 18px;
+}
+
+.poll-title {
+  /* 글씨색  steelblue*/
+  color: steelblue;
+  /* 글씨 수평정렬 - 가운데 */
+  text-align: center;
+  /* 글씨 크기 25px*/
+  font-size: 25px;
+  /* 글씨 굵기 - 굵게*/
+  font-weight: bolder;
+  /* 아래쪽 마진 5px */
+  margin-bottom: 5px;
+}
+
+.poll-question {
+  /* 글씨색 brown */
+  color: brown;
+  /* 글씨 크기 20px */
+  font-size: 20px;
+  /* 글씨 굵기 - 굵게*/
+  font-weight: bolder;
+}
+
+.poll-answer {
+  /* 마진 상하좌우 10px */
+  margin: 10px;
+}
+
+.poll-answer > ul > li {
+  /* 아래쪽 마진 5px*/
+  margin-bottom: 5px;
+}
+
+.poll-btn {
+  /* 글씨 수평정렬 - 오른쪽 */
+  text-align: right;
+  /* 아래쪽 마진 10px */
+  margin-bottom: 10px;
+}
+
+.button {
+  /* 왼쪽마진 5px*/
+  margin-left: 5px;
+  /* 패딩 상하좌우 5px */
+  padding: 5px;
+  /* 배경색 aliceblue*/
+  background-color: aliceblue;
+  /* 경계선 - 굵기 2px, 직선, 색 rgb(103, 53, 240) 
+      rgb( r, g, b)*/
+  border: 2px solid rgb(103, 53, 240);
+  /* 경계선 모서리 둥글게 5px */
+  border-radius: 5px;
+}
+
+.btn-primary {
+  /* 배경색 crimson*/
+  background-color: crimson;
+  /* 글씨색 bisque*/
+  color: bisque;
+}
+
+.poll-date {
+  /* 위쪽 마진 10px*/
+  margin-top: 10px;
+  /* 글씨 크기 15px*/
+  font-size: 15px;
+}
+
+/* 중앙 Main */
+.content-section {
+  /* 너비 75% 만큼 사용 */
+  width: 75%;
+  /* 오른쪽 정렬 */
+  float: right;
+}
+
+.content-section-article {
+  /* 경계선 - 굵기 1px, 직선, 색 red */
+  border: 1px solid red;
+  /* 마진 상하-10px 좌우 5px */
+  margin: 10px 5px;
+  /* 패딩 상하좌우 5px */
+  padding: 5px;
+  /* 최대너비 900px*/
+  max-width: 900px;
+  /* 높이 150px*/
+  height: 150px;
+}
+
+/* 하단 Footer */
+.footer {
+  /* 좌,우 정렬 해제 */
+  /* content의 자식들이 float설정이 되어 튕겨 나갔기 때문에 그다음 태그가 
+  위로 올라감 */
+  clear: both;
+  /* 상하 마진 20px 좌우 자동 */
+  margin: 20px auto;
+  /* 최대 너비 1200px*/
+  max-width: 1200px;
+  /* 높이 50px*/
+  height: 50px;
+  /* 경계선 - 굵기 1px, 직선, 색 lightblue */
+  border: 1px solid lightblue;
+  /* 패딩 상하좌우 10px*/
+  padding: 10px;
+}
+
+.footer > ul {
+  /* 오른쪽 정렬 */
+  float: right;
+}
+
+.footer > ul > li {
+  /* 기존 block인 li를 외부에선 inline요소로 내부적으론 block으로 변경 */
+  display: inline-block;
+  /* 오른쪽 마진 */
+  margin-right: 10px;
+  /* 글씨 크기 15px*/
+  font-size: 15px;
+  /* 글씨색 - rgb(160, 159, 157) */
+  color:  rgb(160, 159, 157);
+  /* 줄 간격 50px*/
+  line-height: 50px;
+}
