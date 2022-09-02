@@ -15,6 +15,10 @@
 - 투표하기 버튼 클릭 시 radio에서 선택된 값을 alert 띄우기
 */
 
+// localStorage에서 정보 얻어오기
+let question = localStorage.getItem("question");
+let pollBtnDiv = document.querySelector(".content-left-poll-btn");
+let pollViewDiv = document.querySelector(".content-left-poll");
 
 window.onload = function () {
   // 프로필 사진 익명으로
@@ -47,6 +51,10 @@ window.onload = function () {
       // 프로필 사진 변경
       document.getElementsByClassName("profile_img")[0].style.display = "none";
       document.getElementsByClassName("profile_img")[1].style.display = "block";
+
+      // 투표 생성 버튼 띄우기
+      document.getElementsByClassName("content-left-poll-msg")[0].style.display = "none";
+      document.getElementsByClassName("content-left-poll-btn")[0].style.display = "block";
 
     } else {
       alert("비밀번호를 잘 못 입력함")
@@ -146,4 +154,6 @@ window.onload = function () {
     console.log(selectValue.value);
     alert(selectValue.value);
   })
+
+
 }

@@ -10,12 +10,14 @@ window.onload = function () {
 
   document.getElementById("btn-make").addEventListener("click", function () {
     var q = document.getElementById("question").value;  
-    if (q=="") {
+    if (!q) {
       alert("질문을 입력하세요!");
+      return;
     }
     var a = document.getElementsByName("answer")[0].value;
-    if (a == "") {
+    if (!a) {
       alert("답변을 입력하세요!");
+      return;
     }
 
     if (q != "" && a != "") {

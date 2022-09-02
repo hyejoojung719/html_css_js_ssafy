@@ -117,6 +117,25 @@ nav > a {
 }
 
 /* 중앙 왼쪽 설문조사 영역의 속성 설정 */
+.content-left-poll-msg{
+  border: 2px solid rgb(182, 182, 182);
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+#btn-makepoll{
+  width: 150px;
+  /* height: 30px; */
+  background-color: rgb(218, 245, 245);
+  border-color: rgb(238, 228, 247);
+  color: rgb(65, 62, 58);
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 5px;
+}
+
 .vote {
   margin: 10px;
   border: 2px solid rgba(0, 0, 0, 0.3);
