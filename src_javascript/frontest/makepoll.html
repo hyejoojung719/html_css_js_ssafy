@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>투표 생성</title>
     <link rel="stylesheet" href="./css/poll.css" />
-		<script src="./js/cafe.js"></script>
+    <script type="text/javascript" src="./js/poll.js"></script>
   </head>
 
   <body>
@@ -12,17 +12,13 @@
       <h3 class="poll-title">투표 만들기</h3>
       <div class="poll-content">
         <form action="">
-          <div class="poll-date">
-            <label>시작일 <input type="date" id="start_date" name="start_date" /></label>
-            <label>종료일 <input type="date" id="end_date" name="end_date" /></label>
-          </div>
           <div class="poll-question">
             <label>질문 내용</label>
             <input type="text" id="question" name="question" placeholder="질문내용..." />
           </div>
           <div class="poll-answer">
             <label>답변 항목</label>
-            <button type="button" id="btn-add" class="button" onclick="javascript:addAnswer();">추가</button>
+            <button type="button" id="btn-add" class="button">추가</button>
           </div>
           <div id="poll-answer-list">
             <div class="poll-answer-item">
@@ -30,7 +26,7 @@
             </div>
           </div>
           <div class="poll-make">
-            <button type="button" id="btn-make" class="button btn-primary" onclick="javascript:makePoll();">투표 생성</button>
+            <button type="button" id="btn-make" class="button btn-primary">투표 생성</button>
           </div>
         </form>
       </div>

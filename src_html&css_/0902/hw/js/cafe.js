@@ -16,11 +16,49 @@
 */
 
 // localStorage에서 정보 얻어오기
-let question = localStorage.getItem("question");
-let pollBtnDiv = document.querySelector(".content-left-poll-btn");
-let pollViewDiv = document.querySelector(".content-left-poll");
+// let question = localStorage.getItem("question");
+// let pollBtnDiv = document.querySelector(".content-left-poll-btn");
+// let pollViewDiv = document.querySelector(".content-left-poll");
 
 window.onload = function () {
+  // localStorage에서 poll이름의 data 얻기.
+var poll = localStorage.getItem("poll");
+// 투표가 보여질 div
+var pollDiv = document.querySelector("#vote");
+if (poll) {
+  // localStorage에서 얻은 문자열을 JSON객체로 변환.
+  var vote = JSON.parse(poll);
+  var sdate = vote.start_date; // 시작일.
+  var edate = vote.end_date; // 종료일.
+  var question = vote.question; // 질문.
+  var answers = vote.answers; // 답변항목.
+  // 투표 화면 구성.
+  var pollContent = '<div class="vote_title">[ 당신의 선택 ]</div>';
+  pollContent += '<div class="vote_question">' + question + "</div>";
+  pollContent += '<div class="vote_answer">';
+  pollContent += "  <ul>";
+  for (var i = 0; i < answers.length; i++) {
+    pollContent += "<li>";
+    pollContent += "    <label>";
+    pollContent += '      <input type="radio" name="vote_answer" value="' + answers[i] + '" />' + answers[i];
+    pollContent += "    </label>";
+    pollContent += "  </li >";
+  }
+  pollContent += "</ul>";
+  pollContent += "</div>";
+  pollContent += '<div class="vote_button">';
+  pollContent += '  <button class="button btn_primary" onclick="javascript:poll();">투표하기</button>';
+  pollContent += '  <button class="button">결과보기</button>';
+  pollContent += "</div>";
+  pollContent += '<div class="vote_date">투표기간 : ' + dateFormat(sdate) + " ~ " + dateFormat(edate) + "</div>";
+  // 투표 화면에 투표양식 추가.
+  pollDiv.innerHTML = pollContent;
+} else {
+  // 진행중인 투표가 없을 경우 화면 추가.
+  pollDiv.innerHTML = '<div class="vote_title">진행중인 투표가 없습니다.</div>';
+}
+
+
   // 프로필 사진 익명으로
   document.getElementsByClassName("profile_img")[1].style.display = "none";
   // 로그아웃 버튼 안보이게
@@ -155,5 +193,75 @@ window.onload = function () {
     alert(selectValue.value);
   })
 
+}
 
+function dateFormat(date){
+  var yymmdd = date.split("-");
+  return yymmdd[0].substr(2,2) + "." + yymmdd[1] + "." + yymmdd[2];
+}
+
+function remove(e) {
+  let removeEl = e.parentNode;
+  let parentEl = document.querySelector("#poll-answer-list");
+
+  parentEl.removeChild(removeEl);
+}
+
+function makePoll(){
+  document.getElementById("btn-make").addEventListener("click", function () {
+    var sdate = document.querySelector("#start_date").value; // 시작일.
+    var edate = document.querySelector("#end_date").value; // 종료일.
+    if (!sdate || !edate) {
+      // 시작, 종료일 유효성검사.
+      alert("설문 기간 입력!!!");
+      return;
+    }
+    var quest = document.querySelector("#question").value; // 질문.
+    if (!quest) {
+      // 질문 유효성검사.
+      alert("질문 내용 입력!!!");
+      return;
+    }
+  
+    var answerInput = document.querySelectorAll('input[name="answer"]'); // 답변 항목.
+    for (var i = 0; i < answerInput.length; i++) {
+      // 답변항목 유효성검사.
+      if (!answerInput[i].value) {
+        alert("답변 항목 입력!!!");
+        return;
+      }
+    }
+
+    var answers = [];
+    for (var i = 0; i < answerInput.length; i++) {
+      answers.push(answerInput[i].value); // 답변 배열에 입력 data 넣기.
+    }
+
+     // 입력 data를 이용하여 JSON객체 생성.
+    var poll = {
+      start_date: sdate,
+      end_date: edate,
+      question: quest,
+      answers: answers
+    };
+
+    var poll_json = JSON.stringify(poll); // JSON객체를 문자열 변환.
+
+    localStorage.setItem("poll", poll_json); // localStorage에 넣기.
+
+    alert("투표를 생성합니다.");
+    opener.document.location.reload(); // 부모창 새로고침.
+    self.close();
+  })
+
+  document.getElementById("btn-add").addEventListener("click", function () {
+    let pollAnswerListDiv = document.querySelector("#poll-answer-list");
+
+    pollAnswerListDiv.innerHTML += `
+    <div class="poll-answer-item">
+        <input type="text" name="answer" />
+        <button type="button" id="btn-delete" class="button" onclick="remove(this)">삭제</button>
+    </div>
+    `
+  })
 }
