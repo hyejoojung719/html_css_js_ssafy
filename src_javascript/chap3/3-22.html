@@ -8,9 +8,32 @@
     <button id="btn">click!!</button>
     <script type="text/javascript">
       var btn = document.getElementById('btn');
-      btn.addEventListener('click', function () {
+      // btn.addEventListener('click', function () {
+      //   console.log('안녕하세요 싸피여러분!!');
+      // });
+
+      // 이렇게 해버리면 클릭 안 했는데도
+      // test가 호출이 됨
+      // 콜백함수는 직접적인 호출을 하면 안 됨
+      // btn.addEventListener("click", test());
+
+      // function test(){
+      //   console.log('안녕하세요 싸피여러분!!');
+      // }
+      // 아래 처럼 고쳐야 한다.
+      btn.addEventListener("click", test);
+
+      function test(){
         console.log('안녕하세요 싸피여러분!!');
-      });
+      }
+
+
+      
+      // 또는 이것
+      var test = function() {
+        console.log('안녕하세요 싸피여러분!!');
+      }
+      btn.addEventListener("click", test);
     </script>
   </body>
 </html>

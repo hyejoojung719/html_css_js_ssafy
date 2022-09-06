@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // for 삼총사
+        function test(){
+            var areas = ["서울","광주","부울경","대전"];
+            for(var i=0; i<areas.length; i++){
+                console.log(areas[i]);
+            }
+            for ( var i in areas){
+                console.log(i);
+            }
+            areas.forEach(function(area){
+                console.log(area);
+            });
+
+            var ssafy = {
+                name : "안효민",
+                age  : 35,
+                area : "대전",
+                study: function(){
+                    console.log("공부합시다");
+                },
+            };
+            // 주로 이럴때 for in 사용(객체 구조 파악)
+            for(var p in ssafy){
+                console.log(p);
+            }
+
+            delete ssafy.age;
+            ssafy.address = "서울 어딘가";
+
+            for(var p in ssafy){
+                console.log(p);
+            }
+        }
+
+        test();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -11,9 +11,14 @@
         name: '김싸피',
         area: '서울',
         classNum: 7,
-        info: function () {
-          console.log(this.name + '은 ' + this.area + this.classNum + '반');
-        },
+        // info: function () {
+        //   console.log(this.name + '은 ' + this.area + this.classNum + '반');
+        // },
+        info: () => console.log(this.name + '은 ' + this.area + this.classNum + '반'),
+          // 얘는 undefined로 출력
+          // why? 
+          // 일반적인 function은 this의 scope가 바로 상위로 올라가서 체크
+          // arrow function은 this는 전역으로 가서 window로 감
       };
       console.log(typeof student); // object
       console.log(student); // {name: "김싸피", area: "서울", classNum: 7, info: f}

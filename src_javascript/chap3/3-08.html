@@ -6,18 +6,20 @@
     <script type="text/javascript">
       window.onload = function () {
         {
-          alert(val);
+          console.log(val);
           var val = 10;
-          // let val = 20;
+          // let val = 20; -> let으로 바꾸면 초기화가 안되어서 위에 console.log 출력 불가
 
           const con = 30;
-          // con = 20;
+          // con = 20; 상수니까 에러
         }
         {
-          alert(val);
-          //alert(con);
+          var val = 50;
+          console.log(val);
+          //alert(con); 
+          // let은 스코프를 벗어나면 사용 불가
         }
-        alert(val);
+        console.log(val);
       };
     </script>
   </head>
